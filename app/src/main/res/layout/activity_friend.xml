@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@color/menuColor"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <Button
+            android:id="@+id/returnBtn"
+            android:layout_width="80dp"
+            style="@style/appTitle"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:text="返回" />
+
+        <TextView
+            android:id="@+id/mainTitle"
+            style="@style/appTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginRight="70dp"
+            android:layout_weight="1"
+            android:text="添加朋友" />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/nickName"
+            style="@style/matchEdit"
+            android:layout_width="match_parent"
+            android:background="@drawable/edit_login_background"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:inputType="textPersonName"
+            android:text="" />
+        <Button
+            android:id="@+id/sendInvitation"
+            style="@style/matchBtn"
+            android:background="@drawable/button_login_background"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="60dp"
+            android:text="发送请求" />
+    </LinearLayout>
+</LinearLayout>

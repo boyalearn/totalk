@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#FFFFFF"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/userName"
+            style="@style/matchEdit"
+            android:background="@drawable/edit_login_background"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:paddingHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:text="zouhuixing"
+            android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/passWord"
+            style="@style/matchEdit"
+            android:background="@drawable/edit_login_background"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="60dp"
+            android:paddingHorizontal="10dp"
+            android:text="Hing19910311"
+            android:inputType="textPassword" />
+
+
+
+        <Button
+            style="@style/matchBtn"
+            android:id="@+id/loginBtn"
+            android:background="@drawable/button_login_background"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="60dp"
+            android:text="@string/login_btn" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="注册" />
+            <TextView
+                android:id="@+id/findPass"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="找回密码" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

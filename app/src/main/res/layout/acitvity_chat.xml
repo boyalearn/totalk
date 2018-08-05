@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:background="@drawable/menu_title_background"
+        android:layout_height="80dp">
+        <Button
+            android:id="@+id/returnBtn"
+            android:layout_width="80dp"
+            style="@style/appTitle"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:text="返回" />
+        <TextView
+            android:id="@+id/curJid"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"/>
+        <TextView
+            android:id="@+id/chat_user"
+            android:layout_width="match_parent"
+            style="@style/appTitle"
+            android:layout_marginRight="80dp"
+            android:gravity="center"
+            android:text="HHHH"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:dividerHeight="10dp"
+            android:divider="@null"
+            android:id="@+id/chat_list">
+        </ListView>
+
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:background="#FFFFFF"
+        android:layout_height="80dp">
+        <EditText
+            android:id="@+id/sendMessage"
+            android:background="@drawable/edit_send_background"
+            android:layout_width="wrap_content"
+            style="@style/matchEdit"
+            android:layout_height="40dp"
+            android:paddingHorizontal="6dp"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:inputType="text" />
+        <Button
+            android:id="@+id/sendBtn"
+            style="@style/sendBtn"
+            android:background="@drawable/button_send_background"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="@string/send_msg" />
+    </LinearLayout>
+</LinearLayout>
