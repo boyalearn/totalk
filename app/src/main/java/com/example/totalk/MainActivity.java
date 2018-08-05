@@ -30,7 +30,6 @@ import com.example.totalk.listener.LoginClickListener;
 import com.example.totalk.listener.MyInfoClickListener;
 import com.example.totalk.listener.RegisterClickListener;
 import com.example.totalk.listener.UserItemListener;
-import com.example.totalk.network.NetWorkManager;
 import com.example.totalk.service.ChatService;
 
 import org.jivesoftware.smack.packet.Presence;
@@ -41,6 +40,11 @@ import java.util.List;
 import java.util.Map;
 
 import static com.example.totalk.container.CurChatContainer.adapter;
+
+
+/**
+ * branch 分支用于代码优化
+ **/
 
 public class MainActivity extends Activity implements ChatService.ChatActivityListener {
 
