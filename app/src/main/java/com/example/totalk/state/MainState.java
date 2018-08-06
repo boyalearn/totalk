@@ -8,7 +8,9 @@ import android.widget.TextView;
 import com.example.totalk.MainActivity;
 import com.example.totalk.R;
 import com.example.totalk.adapter.UserEvtAdapter;
+import com.example.totalk.chatutil.ChatManager;
 import com.example.totalk.container.ApplicationContainer;
+import com.example.totalk.entities.ChatEvt;
 import com.example.totalk.entities.UserEvt;
 import com.example.totalk.listener.FriendClickListener;
 import com.example.totalk.listener.MyInfoClickListener;
@@ -24,6 +26,17 @@ public class MainState implements ActionState{
     public void reflash(MainActivity activity) {
         activity.setContentView(R.layout.activity_main);
 
+        if(ApplicationContainer.CHAT_LIST_INFO.size()<=0){
+            List<UserEvt> userList= null;
+            try {
+                userList = ChatManager.getFriends();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            for(UserEvt userEvt:userList){
+                ApplicationContainer.CHAT_LIST_INFO.put(userEvt.getJid().toString(),new ArrayList<ChatEvt>());
+            }
+        }
 
 
         ImageView imageView=(ImageView)activity.findViewById(R.id.myHeadImg);
