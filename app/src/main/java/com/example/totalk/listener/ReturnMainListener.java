@@ -16,7 +16,6 @@ public class ReturnMainListener implements View.OnClickListener {
     public void onClick(View view) {
         CurChatContainer.currentUser=null;
         try {
-            activity.intoMainUI();
         } catch (Exception e) {
             Log.e(this.getClass().getName(),e.getMessage());
         }

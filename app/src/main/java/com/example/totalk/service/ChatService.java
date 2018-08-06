@@ -8,10 +8,11 @@ import android.util.Log;
 
 import com.example.totalk.MainActivity;
 import com.example.totalk.network.NetWorkManager;
+import com.example.totalk.state.IActivity;
 
 public class ChatService extends Service {
 
-    private ChatActivityListener listener;
+    private IActivity listener;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -25,14 +26,7 @@ public class ChatService extends Service {
         }
     }
 
-    public interface ChatActivityListener{
-        void onChatMessage(Object message);
-        MainActivity.ChatHandler getChatHandler();
-    }
-
-
-
-    public void setListener(ChatActivityListener listener) {
+    public void setListener(IActivity listener) {
         Log.e("setListener","setListener");
         this.listener = listener;
     }
@@ -40,10 +34,21 @@ public class ChatService extends Service {
     @Override
     public void onCreate() {
         Log.e("onCreate","start service");
-        NetWorkManager network=NetWorkManager.getInstance();
+
         try {
-            network.init();
-            network.connect();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    NetWorkManager network=NetWorkManager.getInstance();
+                    try {
+                        network.init();
+                        network.connect();
+                    } catch (Exception e) {
+                    }
+
+                }
+            }).start();
+
         } catch (Exception e) {
             Log.e("onCreate",e.getMessage());
             Log.e("onCreate","create service error");

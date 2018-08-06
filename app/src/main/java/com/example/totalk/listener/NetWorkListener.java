@@ -3,12 +3,14 @@ package com.example.totalk.listener;
 import android.os.Message;
 import android.util.Log;
 import com.example.totalk.service.ChatService;
+import com.example.totalk.state.IActivity;
+
 import org.jivesoftware.smack.StanzaListener;
 import org.jivesoftware.smack.packet.Stanza;
 
 public class NetWorkListener implements StanzaListener {
-    private ChatService.ChatActivityListener listener;
-    public NetWorkListener(ChatService.ChatActivityListener listener){
+    private IActivity listener;
+    public NetWorkListener(IActivity listener){
         this.listener=listener;
     }
     @Override

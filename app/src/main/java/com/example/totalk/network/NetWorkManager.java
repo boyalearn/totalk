@@ -2,6 +2,7 @@ package com.example.totalk.network;
 
 import com.example.totalk.listener.NetWorkListener;
 import com.example.totalk.service.ChatService;
+import com.example.totalk.state.IActivity;
 
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.SmackConfiguration;
@@ -28,7 +29,7 @@ public class NetWorkManager {
     public void init() throws Exception{
         SmackConfiguration.DEBUG = true;
         XMPPTCPConnectionConfiguration.Builder config = XMPPTCPConnectionConfiguration.builder();
-        InetAddress address= InetAddress.getByName("192.168.0.103");
+        InetAddress address= InetAddress.getByName("192.168.0.101");
         config.setHostAddress(address);
         config.setXmppDomain("zouhuixing-pc");
         config.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);
@@ -41,7 +42,7 @@ public class NetWorkManager {
         connection.connect();
     }
 
-    public void addNetWorkListener(ChatService.ChatActivityListener listener){
+    public void addNetWorkListener(IActivity listener){
         connection.addAsyncStanzaListener(new NetWorkListener(listener),null);
 
 
