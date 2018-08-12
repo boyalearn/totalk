@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.example.totalk.MainActivity;
 import com.example.totalk.R;
 import com.example.totalk.adapter.ChatMsgAdapter;
+import com.example.totalk.container.ApplicationContext;
 import com.example.totalk.entities.ChatEvt;
 import com.example.totalk.network.NetWorkManager;
 
@@ -44,6 +45,7 @@ public class SendClickListener implements View.OnClickListener {
             chat.send(message);
             ChatEvt chatEvt=new ChatEvt();
             chatEvt.setMessage(editText.getText().toString());
+            chatEvt.setJid(ApplicationContext.getCurrentLoginUser().getJid().toString());
             list.add(chatEvt);
             adapter.notifyDataSetChanged();
             //列表显示最后一条数据

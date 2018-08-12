@@ -6,9 +6,8 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.example.totalk.MainActivity;
 import com.example.totalk.network.NetWorkManager;
-import com.example.totalk.state.IActivity;
+import com.example.totalk.state.inteface.IActivity;
 
 public class ChatService extends Service {
 
@@ -54,6 +53,11 @@ public class ChatService extends Service {
             Log.e("onCreate","create service error");
         }
         super.onCreate();
+    }
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.e("service","onStartCommand");
+        return super.onStartCommand(intent, flags, startId);
     }
 }

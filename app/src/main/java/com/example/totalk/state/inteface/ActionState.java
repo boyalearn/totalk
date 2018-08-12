@@ -1,4 +1,4 @@
-package com.example.totalk.state;
+package com.example.totalk.state.inteface;
 
 
 import com.example.totalk.MainActivity;

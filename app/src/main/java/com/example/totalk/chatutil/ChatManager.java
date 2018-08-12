@@ -2,7 +2,7 @@ package com.example.totalk.chatutil;
 
 import android.util.Log;
 
-import com.example.totalk.container.ApplicationContainer;
+import com.example.totalk.container.ApplicationContext;
 import com.example.totalk.entities.UserEvt;
 import com.example.totalk.network.NetWorkManager;
 
@@ -10,9 +10,7 @@ import org.jivesoftware.smack.roster.Roster;
 import org.jivesoftware.smack.roster.RosterEntry;
 import org.jivesoftware.smack.roster.RosterGroup;
 import org.jivesoftware.smackx.vcardtemp.packet.VCard;
-import org.jxmpp.jid.BareJid;
 import org.jxmpp.jid.impl.JidCreate;
-import org.jxmpp.stringprep.XmppStringprepException;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -53,7 +51,7 @@ public class ChatManager {
             Log.e("name",String.valueOf(entry.getName()));
             Log.e("type",entry.getType().name());
             userList.add(userEvt);
-            ApplicationContainer.USER_LIST.put(userEvt.getJid().toString(),userEvt);
+            ApplicationContext.USER_LIST.put(userEvt.getJid().toString(),userEvt);
         }
         return userList;
     }

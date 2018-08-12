@@ -24,7 +24,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_weight="1"
-            android:text="联系人" />
+            android:text="消息" />
         <TextView
             android:id="@+id/addFriend"
             android:layout_width="60dp"
@@ -33,7 +33,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_marginRight="10dp"
-            android:text="+" />
+            android:text="" />
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/user_list">
+            android:id="@+id/news_list">
         </ListView>
 
     </LinearLayout>
@@ -74,7 +74,6 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:text="消息" />
-
     </LinearLayout>
 
 

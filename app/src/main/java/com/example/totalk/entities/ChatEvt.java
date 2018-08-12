@@ -4,6 +4,8 @@ public class ChatEvt {
 
     private String message;
 
+    private String jid;
+
     private char layout;
 
     public String getMessage() {
@@ -12,6 +14,14 @@ public class ChatEvt {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getJid() {
+        return jid;
+    }
+
+    public void setJid(String jid) {
+        this.jid = jid;
     }
 
     public char getLayout() {

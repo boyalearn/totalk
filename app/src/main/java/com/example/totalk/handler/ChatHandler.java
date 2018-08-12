@@ -1,17 +1,19 @@
 package com.example.totalk.handler;
 
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
 import com.example.totalk.MainActivity;
-import com.example.totalk.container.ApplicationContainer;
+import com.example.totalk.chatutil.LoginType;
+import com.example.totalk.container.ApplicationContext;
 import com.example.totalk.container.CurChatContainer;
 import com.example.totalk.entities.ChatEvt;
+import com.example.totalk.network.NetWorkManager;
 import com.example.totalk.state.MainState;
 
 import org.jivesoftware.smack.packet.Presence;
+import org.jivesoftware.smackx.vcardtemp.packet.VCard;
 
 import java.util.List;
 
@@ -30,16 +32,18 @@ public class ChatHandler extends Handler {
         Log.d("MyHandler","handleMessage.....");
         super.handleMessage(msg);
         // 此处可以更新UI
-        if(msg.obj instanceof Presence){
-            Presence presence=(Presence)msg.obj;
-            /**如果登录成功*/
-            if("available".equals(presence.getType().name())){
-                try {
-                    activity.setState(new MainState());
-                } catch (Exception e) {
-                    Log.e(this.getClass().getName(),e.getMessage());
-                }
-
+        if(LoginType.SUCCESS.equals(msg.obj.toString())){
+            try {
+                activity.setState(new MainState());
+                NetWorkManager network=NetWorkManager.getInstance();
+                VCard vcard=new VCard();
+                vcard.load(network.getConnection(),network.getConnection().getUser().asEntityBareJid());
+                ApplicationContext.getCurrentLoginUser().setAvatar(vcard.getAvatar());
+                ApplicationContext.getCurrentLoginUser().setNickName(vcard.getNickName());
+                ApplicationContext.getCurrentLoginUser().setJid(network.getConnection().getUser().asEntityBareJid());
+                ApplicationContext.USER_LIST.put(network.getConnection().getUser().asEntityBareJid().toString(),ApplicationContext.getCurrentLoginUser());
+            } catch (Exception e) {
+                Log.e(this.getClass().getName(), e.getMessage());
             }
             Log.e("iq",msg.obj.toString());
         }
@@ -50,8 +54,9 @@ public class ChatHandler extends Handler {
             Log.e("chatMsg",message.getFrom().toString());
             ChatEvt chatEvt=new ChatEvt();
             chatEvt.setLayout('L');
+            chatEvt.setJid(jid);
             chatEvt.setMessage(message.getBody());
-            List<ChatEvt> list=ApplicationContainer.CHAT_LIST_INFO.get(jid);
+            List<ChatEvt> list=ApplicationContext.CHAT_LIST_INFO.get(jid);
             if(null!=list){
                 list.add(chatEvt);
             }
